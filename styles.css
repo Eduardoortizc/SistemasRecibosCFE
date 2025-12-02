@@ -1,0 +1,189 @@
+:root {
+    --cfe-green: #2d5e4e;
+    --cfe-light: #f0fdf4;
+    --alert-red: #ef4444;
+    --bg-color: #f3f4f6;
+    --card-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    min-height: 60vh;      
+    box-sizing: border-box; 
+}
+
+/* Contenedor Principal */
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--cfe-green);
+    margin-bottom: 5px;
+}
+
+p.subtitle {
+    color: var(--text-muted);
+    margin-top: 0;
+}
+
+/* Zona de Carga de Archivo */
+.upload-area {
+    background-color: var(--card-bg);
+    border: 2px dashed var(--cfe-green);
+    border-radius: 12px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    display: block; /* Para que funcione bien el label */
+}
+
+.upload-area:hover {
+    background-color: var(--cfe-light);
+    transform: scale(1.01);
+}
+
+.upload-icon {
+    font-size: 40px;
+    color: var(--cfe-green);
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Tarjeta de Resultados (Oculta al inicio) */
+#result-card {
+    display: none;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Encabezado de la Tarjeta */
+.card-header {
+    background: var(--cfe-green);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.period-badge {
+    background: rgba(255,255,255,0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+/* Cuerpo de la Tarjeta */
+.card-body {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    .card-body { grid-template-columns: 1fr; }
+}
+
+.info-group {
+    margin-bottom: 15px;
+}
+
+.label {
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.value {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.value.highlight {
+    font-size: 1.4em;
+    color: var(--cfe-green);
+}
+
+/* Alerta de Tarifa DAC */
+.dac-alert {
+    grid-column: 1 / -1;
+    background-color: #fee2e2;
+    color: var(--alert-red);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid var(--alert-red);
+    font-weight: bold;
+    display: none; 
+}
+
+.footer-note {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 0.8em;
+    color: #9ca3af;
+    margin-top: 20px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 10px;
+}
+
+/* Botón reiniciar */
+.btn-reset {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid var(--cfe-green);
+    color: var(--cfe-green);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-reset:hover {
+    background: var(--cfe-light);
+}
+.main-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--text-muted); /* Usa el gris suave que definimos antes */
+    font-size: 0.9em;
+    font-weight: 500;
+    opacity: 0.8;
+}

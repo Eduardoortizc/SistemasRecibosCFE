@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor de Recibo CFE</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>⚡ Visor de Recibo</h1>
+        <p class="subtitle">Subir archivo XML para verlo claramente</p>
+    </header>
+
+    <label class="upload-area" id="drop-zone">
+        <div class="upload-icon">📂</div>
+        <strong>Haz clic para subir el XML</strong>
+        <p style="font-size: 0.9em; color: #888;">(O arrástralo aquí)</p>
+        <input type="file" id="fileInput" accept=".xml">
+    </label>
+
+    <div id="result-card">
+        <div class="card-header">
+            <div>
+                <span style="font-size: 0.9em; opacity: 0.9;">Servicio / RPU</span>
+                <div style="font-size: 1.2em; font-weight: bold;" id="rpu">---</div>
+            </div>
+            <div class="period-badge" id="periodo">---</div>
+        </div>
+
+        <div class="card-body">
+            <div>
+                <div class="info-group">
+                    <span class="label">Usuario</span>
+                    <span class="value" id="nombre">---</span>
+                </div>
+                <div class="info-group">
+                    <span class="label">Dirección</span>
+                    <span class="value" style="font-size: 0.95em;" id="direccion">---</span>
+                </div>
+                <div class="info-group">
+                    <span class="label">Límite de Pago</span>
+                    <span class="value" id="fecha-limite">---</span>
+                </div>
+            </div>
+
+            <div>
+                <div class="info-group">
+                    <span class="label">Consumo Total (kWh)</span>
+                    <span class="value" id="consumo">---</span>
+                </div>
+                <div class="info-group">
+                    <span class="label">Cargos del Periodo</span>
+                    <span class="value highlight" id="monto">---</span>
+                    <div style="font-size: 0.75em; color: #888;" id="nota-monto"></div>
+                </div>
+                 <div class="info-group">
+                    <span class="label">Tarifa Aplicada</span>
+                    <span class="value" id="tarifa">---</span>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                <button class="btn-reset" id="btn-reset">Subir otro archivo</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        Hecho por Eduardo Ortiz
+    </footer>
+
+</div>
+
+<script src="functions.js"></script>
+
+</body>
+</html>
